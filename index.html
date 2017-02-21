@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<head>
+		<meta charset="UTF-8">
+		<title>Homework #4</title>
+		<script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+		<script src="js/navitems.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body ng-controller="NavController">
+
+		<header>
+			<h1>git user:  {{ user.name }}</h1>
+		</header>
+
+		<nav id="main">
+			<a class="logo" href="#0"><img src="/img/logo.svg" /></a>
+			<ul id="nav-links">
+				<li ng-repeat="navItem in navItems">
+					<a href=" {{ navItem.link }} ">{{ navItem.label }}</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="site-wrap"">
+			<div class="ab">
+				<input class="ab" type="text" placeholder="search beers" ng-model="filterValue"></input>
+			</div>
+
+			<ul class="beer">
+				<li ng-repeat="beerItem in beerItems | orderBy : 'name' | filter: { name: filterValue }">
+					<div class="text">
+						<h2>{{ beerItem.name }}</h2>
+						<h3>{{ beerItem.description }}</h3>
+					</div>
+					<img src="{{  beerItem.image_url }}">
+				</li>
+			</ul>
+
+		</div>
+
+		<script src="js/main.js"></script>
+	</body>
+	</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
